@@ -70,7 +70,7 @@ export default function Hero() {
 
 
       <div className='md:mt-0 -mt-60 flex flex-col justify-center items-center'>
-        <h1 className="hero-text text-5xl md:text-6xl font-bold mb-4 relative z-10">
+        <h1 className="hero-text text-5xl md:text-6xl font-bold mb-4 relative z-10 text-center text-balance">
           Hi, I’m{' '}
           <span
             ref={nameRef}
