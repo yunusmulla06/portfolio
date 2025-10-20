@@ -17,7 +17,7 @@ export default function Home() {
       <Footer />
 
 
-      <div className="absolute right-10 bottom-10">
+      <div className="absolute md:right-10 right-5 md:bottom-10 bottom-8">
         <Link
           href="/resume.pdf"
           target="_blank"

@@ -18,7 +18,7 @@ const Section = forwardRef<HTMLDivElement, Props>(
         : 'bg-gray-100 text-gray-900'
 
     const paddingY =
-      py === '20' ? 'py-20' : 'py-0'
+      py === '20' ? 'md:py-20 py-10' : 'py-0'
 
     return (
       <section
