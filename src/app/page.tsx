@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -7,13 +8,29 @@ import Skills from './components/Skills'
 
 export default function Home() {
   return (
-    <main>
+    <main className='relative'>
       <Hero />
       <About />
       <Projects />
       <Skills />
       <Contact />
       <Footer />
+
+
+      <div className="absolute right-10 bottom-10">
+        <Link
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium group"
+
+        >
+          Resume
+          <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-2">
+            ➔
+          </span>
+        </Link>
+      </div>
     </main>
   )
 }

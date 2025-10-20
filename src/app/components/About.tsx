@@ -69,12 +69,32 @@ export default function About() {
                     <h2 className="about-text text-3xl font-bold text-white">
                         About Me
                     </h2>
-                    <p className="about-text text-gray-400">
+                    {/* <p className="about-text text-gray-400">
                         I’m Moahmmed Yunus, a Front-End Developer with a focus on building modern, responsive, and animated web applications. I specialize in Next.js, React, and Tailwind CSS, and I enjoy turning designs into smooth, interactive user experiences. I have experience in WordPress development and UI animations, and I’m constantly exploring new tools and technologies to create polished, user-friendly websites.
                     </p>
                     <p className="about-text text-gray-400">
                         Beyond coding, I love experimenting with micro-interactions, GSAP animations, and design concepts that elevate the overall experience. I thrive in collaborative environments and enjoy contributing to projects that push creative and technical boundaries.
+                    </p> */}
+                    <p className="about-text text-gray-400">
+                        I’m <span className="text-white font-semibold">Mohammed Yunus Mulla</span>, a passionate <span className="text-indigo-400 font-medium">Front-End Developer</span> who loves crafting interactive, high-performance websites that combine aesthetics with smooth functionality. I specialize in <span className="text-emerald-400">Next.js</span>, <span className="text-amber-400">React</span>, and <span className="text-fuchsia-400">Tailwind CSS</span>.
                     </p>
+
+                    <p className="about-text text-gray-400">
+                        After completing my graduation, I began my journey as a front-end developer — starting with <span className="text-indigo-400">HTML</span>, <span className="text-indigo-400">CSS</span>, and <span className="text-indigo-400">JavaScript</span>. Over time, I moved into <span className="text-fuchsia-400">WordPress custom theme development</span>, then transitioned to modern frameworks like <span className="text-emerald-400">React</span> and <span className="text-emerald-400">Next.js</span>, focusing mainly on building performant and scalable front-end experiences.
+                    </p>
+
+                    <p className="about-text text-gray-400">
+                        As I grew, I developed a strong interest in <span className="text-pink-400">Micro Animations</span> using <span className="text-indigo-400">GSAP</span> and Vanilla JavaScript — adding subtle, engaging interactions to elevate user experience. I later expanded into <span className="text-emerald-400">Full-Stack Development</span>, building a MERN project completely through self-learning and exploration.
+                    </p>
+
+                    <p className="about-text text-gray-400">
+                        I’ve also designed <span className="text-fuchsia-400">Mobile App screens</span> using React Native, customized <span className="text-amber-400">Shopify</span> stores, and optimized websites for <span className="text-emerald-400">SEO performance</span>. Along the way, I completed two freelance projects — <span className="text-white font-medium">Nawayath Repair</span> and <span className="text-white font-medium">Patel Interiors</span> — focusing on creating clean, elegant, and user-friendly web solutions.
+                    </p>
+
+                    <p className="about-text text-gray-400">
+                        Beyond coding, I enjoy exploring UI animations, experimenting with design systems, and continuously learning to stay at the edge of modern web development.
+                    </p>
+
                 </div>
             </div>
         </Section>

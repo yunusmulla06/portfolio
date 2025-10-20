@@ -35,10 +35,17 @@ export default function Projects() {
   }, [])
 
   const projectList = [
-      { 
-        name: 'Project One',
-        desc: 'Description of project one. Technologies used: Next.js, Tailwind, GSAP.',
-        link: '#'
+      {
+        name: 'Nawayath Repair',
+        desc: 'Service website for a local repair business, showcasing available services, contact info, and customer testimonials for easy client engagement.',
+        tech: ['React', 'Tailwind', 'GSAP'],
+        link: 'https://nawayath-smart-repair.vercel.app/',
+      },
+      {
+        name: 'Patel Interior',
+        desc: 'Interior design company website featuring portfolio galleries, service details, and smooth animations to highlight design projects.',
+        tech: ['React', 'Tailwind', 'GSAP'],
+        link: 'https://patel-interior.vercel.app/',
       },
     ]
 
@@ -55,12 +62,19 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
         {projectList.map((project, index) => (
-        <Link key={project.name || index} href={project.link} className="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
+        <Link key={project.name || index} href={project.link} target='blank' className="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
           <div className="p-4">
-          <h3 className="font-bold text-white text-xl mb-2">{project.name}</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="font-bold text-white text-xl mb-4">{project.name}</h3>
+            <p className="text-gray-400 text-sm mb-4">
               {project.desc}
             </p>
+            <ul className='flex gap-4'>
+              {project.tech.map((item, i) => (
+                <li key={`${project.tech}-${i}`} className="flex items-center italic underline text-gray-400">
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </Link>
         ))}
