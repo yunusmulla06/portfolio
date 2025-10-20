@@ -6,15 +6,12 @@ import Image from 'next/image'
 import Section from './Section'
 import { describe } from 'node:test'
 import Link from 'next/link'
-// import project1 from '../../public/project1.png' // replace with your project images
-// import project2 from '../../public/project2.png'
 
 export default function Projects() {
   const projectsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Fade-up animation for each project card
       gsap.from('.project-card', {
         y: 25,
         opacity: 0,
@@ -24,7 +21,6 @@ export default function Projects() {
         clearProps: 'transform',
       })
 
-      // Floating shapes
       gsap.to('.float', {
         y: '+=20',
         duration: 3,

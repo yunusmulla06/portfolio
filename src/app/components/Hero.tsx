@@ -19,7 +19,6 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero text fade-in
       gsap.from('.hero-text', {
         y: 50,
         opacity: 0,
@@ -28,7 +27,6 @@ export default function Hero() {
         stagger: 0.2,
       })
 
-      // Name scramble using GSAP ScrambleText plugin
       gsap.to(nameRef.current, {
         duration: 5,
         scrambleText: {
@@ -42,14 +40,12 @@ export default function Hero() {
         ease: 'power3.inOut',
       })
 
-      // Image fade-in
       gsap.fromTo(
         imgRef.current,
         { opacity: 0 },
         { opacity: 1, duration: 10, ease: 'power2.out' }
       )
 
-      // Floating background elements
       gsap.to('.float', {
         y: '+=20',
         duration: 3,
@@ -76,13 +72,13 @@ export default function Hero() {
         Hi, I’m{' '}
         <span
           ref={nameRef}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 animate-gradient"
+          className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 animate-gradient text-center text-balance"
         >
           Y
         </span>
       </h1>
 
-      <p className="hero-text text-lg md:text-xl text-gray-400 mb-6 relative z-10 w-3xl text-center text-balance">
+      <p className="hero-text text-lg md:text-xl text-gray-400 mb-6 relative z-10 max-w-3xl text-center text-balance">
         Front-End Developer | Next.js • React • GSAP • Tailwind CSS | Learning Full Stack (Node.js + MongoDB) | Building Animated & Scalable Web Apps
       </p>
 
@@ -93,8 +89,7 @@ export default function Hero() {
         View My Work <ArrowRight className="w-5 h-5 arrow-animate" />
       </Link>
 
-      {/* Animated Image */}
-      <div ref={imgRef} className="absolute w-96 right-0 bottom-0">
+      <div ref={imgRef} className="absolute md:w-96 w-52 right-0 bottom-0">
         <Image src={elementPic} alt="img" className="" />
       </div>
     </Section>
