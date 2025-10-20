@@ -9,7 +9,6 @@ export default function Contact() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Fade-up animation for contact text
       gsap.from('.contact-text', {
         y: 50,
         opacity: 0,
@@ -18,7 +17,6 @@ export default function Contact() {
         stagger: 0.2,
       })
 
-      // Floating shapes
       gsap.to('.float', {
         y: '+=15',
         duration: 3,
