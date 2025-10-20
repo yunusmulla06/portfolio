@@ -84,12 +84,27 @@ export default function Hero() {
           Front-End Developer | Next.js • React • GSAP • Tailwind CSS | Learning Full Stack (Node.js + MongoDB) | Building Animated & Scalable Web Apps
         </p>
 
-        <Link
+        {/* <Link
           href="#projects"
           className="flex items-center gap-2 arrow-animate-btn bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300 relative z-10"
         >
           View My Work <ArrowRight className="w-5 h-5 arrow-animate" />
+        </Link> */}
+
+        {/* <div className="absolute md:right-10 right-5 md:bottom-10 bottom-8"> */}
+        <Link
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium group"
+
+        >
+          Resume
+          <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-2">
+            ➔
+          </span>
         </Link>
+      {/* </div> */}
 
       </div>
 
