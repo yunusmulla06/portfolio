@@ -30,7 +30,7 @@ export default function WorkExperience() {
         duration: 0.5,
         ease: 'power3.out',
         stagger: 0.3,
-        clearProps: 'transform',
+        clearProps: 'all',
       })
     }, expRef)
 
