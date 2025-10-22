@@ -1,6 +1,6 @@
 'use client'
 
-import { FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
 
 export default function Footer() {
   return (
@@ -18,9 +18,6 @@ export default function Footer() {
         <a href="https://github.com/yunusmulla06" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
           <FaGithub size={24} />
         </a>
-        {/* <a href="https://twitter.com/your-twitter" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-          <FaTwitter size={24} />
-        </a> */}
       </div>
     </footer>
   )
