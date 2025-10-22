@@ -14,7 +14,7 @@ const experiences = [
   {
     role: 'Front-End Developer',
     company: 'Oro Media Lab',
-    duration: '2021 – 2023',
+    duration: 'Oct 2023 – July 2025',
     description: 'Started with HTML, CSS, JS; moved to WordPress custom themes; transitioned to React & Next.js; worked on UI animations and responsive design.',
   },
 ]
