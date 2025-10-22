@@ -38,14 +38,14 @@ export default function Hero() {
         ease: 'power3.inOut',
       })
 
-      let tl = gsap.timeline({ repeat: -1, repeatDelay: 1 })
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 })
       phrases.forEach(phrase => {
         tl.to(descRef.current, {
-          duration: 2,
+          duration: 3,
           scrambleText: {
             text: phrase,
-            chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 •',
-            speed: 0.5,
+            chars: 'XO •',
+            speed: 0.8,
           },
           ease: 'power1.inOut',
         }).to(descRef.current, { duration: 1, opacity: 0, ease: 'power1.inOut' })
@@ -77,7 +77,7 @@ export default function Hero() {
     }, heroRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [phrases])
 
   return (
     <Section ref={heroRef} className='min-h-screen'>

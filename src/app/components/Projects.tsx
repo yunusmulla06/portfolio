@@ -2,9 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import Image from 'next/image'
 import Section from './Section'
-import { describe } from 'node:test'
 import Link from 'next/link'
 
 export default function Projects() {
