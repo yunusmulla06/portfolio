@@ -32,8 +32,8 @@ export default function Hero() {
         scrambleText: {
           text: 'Moahmmed Yunus',
           chars: ' X O',
-          revealDelay: 0.5,
-          speed: 0.8,
+          revealDelay: 0.3,
+          speed: 1,
         },
         ease: 'power3.inOut',
       })
@@ -41,14 +41,14 @@ export default function Hero() {
       const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 })
       phrases.forEach(phrase => {
         tl.to(descRef.current, {
-          duration: 3,
+          duration: 8,
           scrambleText: {
             text: phrase,
             chars: 'XO •',
-            speed: 0.8,
+            speed: 0.1,
           },
-          ease: 'power1.inOut',
-        }).to(descRef.current, { duration: 1, opacity: 0, ease: 'power1.inOut' })
+          ease: 'power3.inOut',
+        }).to(descRef.current, { duration: 0.6, opacity: 0, ease: 'power1.inOut' })
         .set(descRef.current, { opacity: 1 }) 
       })
 
