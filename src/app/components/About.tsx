@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import Image from 'next/image'
-import profilePic from '../../../public/profile.png'
+import profilePic from '../../../public/profile.jpeg'
 import Section from './Section'
 
 export default function About() {
