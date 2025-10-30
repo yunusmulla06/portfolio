@@ -13,11 +13,11 @@ export default function AnalyticsTracker({ id }: AnalyticsTrackerProps) {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (typeof window.gtag !== 'undefined') {
-      (window as any).gtag('config', GA_MEASUREMENT_ID, {
+    const w: any = window
+    if (typeof w.gtag !== 'undefined') {
+      w.gtag('config', GA_MEASUREMENT_ID, {
         page_path: pathname,
       })
-
     }
   }, [pathname])
 
