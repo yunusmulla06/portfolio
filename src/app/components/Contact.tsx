@@ -8,11 +8,11 @@ export default function ContactSection() {
     const [selectedForm, setSelectedForm] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setIsSubmitting(true)
 
-        const form = e.target
+        const form = e.currentTarget
         const data = new FormData(form)
         const action = form.action
 
