@@ -77,7 +77,7 @@ export default function ContactSection() {
                             <textarea
                                 name="message"
                                 // placeholder="Tell me more..."
-                                rows="4"
+                                rows={4}
                                 className={inputClass}
                             ></textarea>
                         </div>
@@ -112,7 +112,7 @@ export default function ContactSection() {
                             <textarea
                                 name="details"
                                 // placeholder="Project details or requirements"
-                                rows="4"
+                                rows={4}
                                 className={inputClass}
                             ></textarea>
                         </div>
