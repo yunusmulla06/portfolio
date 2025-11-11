@@ -1,51 +1,171 @@
 'use client'
-
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
+import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Section from './Section'
 
-export default function Contact() {
-  const contactRef = useRef<HTMLDivElement>(null)
+export default function ContactSection() {
+    const [selectedForm, setSelectedForm] = useState('')
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.contact-text', {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        stagger: 0.2,
-      })
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setIsSubmitting(true)
 
-      gsap.to('.float', {
-        y: '+=15',
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: 0.3,
-      })
-    }, contactRef)
+        const form = e.target
+        const data = new FormData(form)
+        const action = form.action
 
-    return () => ctx.revert()
-  }, [])
+        try {
+            const response = await fetch(action, {
+                method: form.method,
+                body: data,
+                headers: { Accept: 'application/json' },
+            })
 
-  return (
-    <Section py='20'>
-      <div className="float absolute top-10 left-10 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl z-0"></div>
+            if (response.ok) {
+                toast.success('✅ Message sent successfully!')
+                form.reset()
+                setSelectedForm('')
+            } else {
+                toast.error('❌ Failed to send message. Try again.')
+            }
+        } catch (error) {
+            toast.error('⚠️ Something went wrong.')
+        } finally {
+            setIsSubmitting(false)
+        }
+    }
 
-      <h2 className="text-3xl font-bold text-white mb-6">Get in Touch</h2>
-      <p className="text-gray-400 mb-6 text-center max-w-xl">
-        I’m open to Front-End opportunities and freelance projects.
-      </p>
+    const renderForm = () => {
+        const formProps = {
+            onSubmit: handleSubmit,
+            method: 'POST',
+            action: 'https://formspree.io/f/xvgdobky',
+            className:
+                'mt-6 space-y-4 max-w-lg mx-auto text-left bg-white/5 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/10',
+        }
 
-      <a
-        href="mailto:mullayunus549@gmail.com"
-        className="relative z-10 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300"
-      >
-        Contact Me
-      </a>
-    </Section>
+        const inputClass =
+            'w-full border border-gray-300 dark:border-white/20 bg-transparent text-sm p-3 rounded-lg focus:ring-2 focus:ring-black dark:focus:ring-white outline-none transition'
 
-  )
+        const buttonClass = `w-full bg-black text-white px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-800 disabled:opacity-70 disabled:cursor-not-allowed`
+
+        switch (selectedForm) {
+            case 'hire':
+                return (
+                    <form {...formProps}>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="name">Your Name</label>
+                            <input type="text" name="name" required className={inputClass} />
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="email">Your Email</label>
+                            <input type="email" name="email" required className={inputClass} />
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="position">Position / Role you want to hire for</label>
+                            <input
+                                type="text"
+                                name="position"
+                                // placeholder="Position / Role you want to hire for"
+                                className={inputClass}
+                            />
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="message">Tell me more...</label>
+                            <textarea
+                                name="message"
+                                // placeholder="Tell me more..."
+                                rows="4"
+                                className={inputClass}
+                            ></textarea>
+                        </div>
+                        <button type="submit" disabled={isSubmitting} className={buttonClass}>
+                            {isSubmitting ? 'Submitting...' : 'Send'}
+                        </button>
+                    </form>
+                )
+
+            case 'project':
+                return (
+                    <form {...formProps}>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="name">Your Name</label>
+                            <input type="text" name="name" required className={inputClass} />
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="email">Your Email</label>
+                            <input type="email" name="email" required className={inputClass} />
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="projectType">Type of Project (Website, App, etc.)</label>
+                            <input
+                                type="text"
+                                name="projectType"
+                                // placeholder="Type of Project (Website, App, etc.)"
+                                className={inputClass}
+                            />
+                        </div>
+                        <div className='flex flex-col gap-2'>
+                            <label htmlFor="details">Project details or requirements</label>
+                            <textarea
+                                name="details"
+                                // placeholder="Project details or requirements"
+                                rows="4"
+                                className={inputClass}
+                            ></textarea>
+                        </div>
+                        <button type="submit" disabled={isSubmitting} className={buttonClass}>
+                            {isSubmitting ? 'Submitting...' : 'Send'}
+                        </button>
+                    </form>
+                )
+
+            default:
+                return null
+        }
+    }
+
+    return (
+        <Section id="contact" className="py-20 text-center relative">
+            <ToastContainer position="top-center" autoClose={2500} hideProgressBar />
+
+            <div className="max-w-2xl mx-auto px-6">
+                <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+                    Let’s <span className="text-black dark:text-white">Connect</span>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-8 text-sm md:text-base">
+                    Whether you’re looking to collaborate, hire, or discuss a project — I’d love to hear from you.
+                </p>
+
+                {!selectedForm ? (
+                    <div className="flex flex-col sm:flex-row justify-center gap-6">
+                        <button
+                            onClick={() => setSelectedForm('hire')}
+                            className="px-6 py-3 border rounded-xl hover:bg-black hover:text-white transition-all duration-300"
+                        >
+                            Hire Me
+                        </button>
+                        <button
+                            onClick={() => setSelectedForm('project')}
+                            className="px-6 py-3 border rounded-xl hover:bg-black hover:text-white transition-all duration-300"
+                        >
+                            Project Inquiry
+                        </button>
+                    </div>
+                ) : (
+                    <>
+                        <button
+                            onClick={() => setSelectedForm('')}
+                            className="text-sm underline mb-4 hover:text-gray-500 transition"
+                        >
+                            ← Back
+                        </button>
+                        {renderForm()}
+                    </>
+                )}
+            </div>
+        </Section>
+    )
 }
