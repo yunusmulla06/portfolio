@@ -35,13 +35,13 @@ export default function Projects() {
   const projectList = [
       {
         name: 'Nawayath Repair',
-        desc: 'Service website for a local repair business, showcasing available services, contact info, and customer testimonials for easy client engagement.',
+        desc: 'Built a responsive service website with clean UI, smooth interactions, and optimized user flow.',
         tech: ['React', 'Tailwind', 'GSAP'],
         link: 'https://nawayath-smart-repair.vercel.app/',
       },
       {
         name: 'Patel Interior',
-        desc: 'Interior design company website featuring portfolio galleries, service details, and smooth animations to highlight design projects.',
+        desc: 'Developed an interior website with portfolio sections and subtle animations to showcase projects.',
         tech: ['React', 'Tailwind', 'GSAP'],
         link: 'https://patel-interior.vercel.app/',
       },
@@ -60,21 +60,42 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
         {projectList.map((project, index) => (
-        <Link key={project.name || index} href={project.link} target='blank' className="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300">
-          <div className="p-4">
-            <h3 className="font-bold text-white text-xl mb-4">{project.name}</h3>
+        <div key={project.name || index} className="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+          <div className="p-5">
+            <h3 className="font-bold text-white text-xl mb-3">
+              {project.name}
+            </h3>
+
             <p className="text-gray-400 text-sm mb-4">
               {project.desc}
             </p>
-            <ul className='flex gap-4'>
+
+            <div className="flex flex-wrap gap-2">
               {project.tech.map((item, i) => (
-                <li key={`${project.tech}-${i}`} className="flex items-center italic underline text-gray-400">
+                <span
+                  key={i}
+                  className="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded-md"
+                >
                   {item}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
+
+            <div className="flex">
+              <Link
+                href={project.link}
+                target="_blank"
+                aria-label={`View ${project.name}`}
+                className="mt-4 flex items-center text-indigo-400 ml-auto group"
+              >
+                <span className="text-xs">Live Site</span>
+                <span className="ml-1 text-xl transform transition-transform duration-300 group-hover:translate-x-1.5">
+                  ⇒
+                </span>
+              </Link>
+            </div>
           </div>
-        </Link>
+        </div>
         ))}
       </div>
     </Section>

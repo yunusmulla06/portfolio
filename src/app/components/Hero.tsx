@@ -2,14 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin'
 import Link from 'next/link'
 import Image from 'next/image'
 
 import elementPic from '../../../public/animated.png'
 import Section from './Section'
 
-gsap.registerPlugin(ScrambleTextPlugin)
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -17,67 +15,66 @@ export default function Hero() {
   const descRef = useRef<HTMLParagraphElement>(null)
   const imgRef = useRef<HTMLDivElement>(null)
 
-  const phrases = [
-    'Front-End Developer',
-    'Next.js • React • GSAP • Tailwind CSS',
-    'Learning Full Stack (Node.js + MongoDB)',
-    'Building Animated & Scalable Web Apps'
+  
+  useEffect(() => {
+
+
+    const phrases = [
+    'Front-End Developer based in Dubai',
+    'Next.js • React • Tailwind CSS',
+    'Building fast & scalable Web Applications',
+    'Open to opportunities • 30 days notice'
   ]
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Name animation
-      gsap.to(nameRef.current, {
-        duration: 5,
-        scrambleText: {
-          text: 'Moahmmed Yunus',
-          chars: ' X O',
-          revealDelay: 0.3,
-          speed: 1,
-        },
-        ease: 'power3.inOut',
-      })
+  
+  const ctx = gsap.context(() => {
+    gsap.fromTo(
+      nameRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }
+    )
 
-      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 })
-      phrases.forEach(phrase => {
-        tl.to(descRef.current, {
-          duration: 8,
-          scrambleText: {
-            text: phrase,
-            chars: 'XO •',
-            speed: 0.1,
-          },
-          ease: 'power3.inOut',
-        }).to(descRef.current, { duration: 0.6, opacity: 0, ease: 'power1.inOut' })
-        .set(descRef.current, { opacity: 1 }) 
-      })
+    const tl = gsap.timeline({ repeat: -1 })
 
-      gsap.from('.hero-text', {
-        y: 50,
+    phrases.forEach((phrase) => {
+      tl.to(descRef.current, {
         opacity: 0,
-        duration: 1,
-        ease: 'power2.out',
-        stagger: 0.2,
+        y: 10,
+        duration: 0.4,
+        ease: 'power2.in',
       })
+        .set(descRef.current, { textContent: phrase })
+        .to(descRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        })
+        .to(descRef.current, {
+          delay: 2,
+        })
+    })
 
-      gsap.fromTo(
-        imgRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 10, ease: 'power2.out' }
-      )
+    gsap.from('.hero-text', {
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      stagger: 0.2,
+    })
 
-      gsap.to('.float', {
-        y: '+=20',
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        stagger: 0.3,
-      })
-    }, heroRef)
+    gsap.to('.float', {
+      y: '+=20',
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+      stagger: 0.3,
+    })
+  }, heroRef)
 
-    return () => ctx.revert()
-  }, [phrases])
+  return () => ctx.revert()
+}, [])
 
   return (
     <Section ref={heroRef} className='min-h-screen'>
@@ -90,9 +87,10 @@ export default function Hero() {
           Hi, I’m{' '}
           <span
             ref={nameRef}
-            className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 animate-gradient text-center text-balance"
+            // className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 animate-gradient text-center text-balance"
+            className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 bg-[length:200%_auto] animate-gradient"
           >
-            Y
+            Mohammed Yunus
           </span>
         </h1>
 
@@ -101,6 +99,8 @@ export default function Hero() {
           className="hero-text text-lg md:text-xl text-gray-400 mb-6 relative z-10 max-w-3xl text-center text-balance"
         >
           {/* initial text will be replaced by gsap scramble */}
+            Front-End Developer based in Dubai
+
         </p>
 
         <Link

@@ -9,8 +9,8 @@ const saira = Saira({
 })
 
 export const metadata = {
-  title: 'Moahmmed Yunus | Frontend Developer',
-  description: 'Portfolio of Moahmmed Yunus — Frontend Developer skilled in Next.js, React, and GSAP animations.',
+  title: 'Mohammed Yunus | Frontend Developer',
+  description: 'Portfolio of Mohammed Yunus — Frontend Developer skilled in Next.js, React, and GSAP animations.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
