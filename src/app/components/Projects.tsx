@@ -70,7 +70,7 @@ export default function Projects() {
               {project.desc}
             </p>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 cursor-none">
               {project.tech.map((item, i) => (
                 <span
                   key={i}

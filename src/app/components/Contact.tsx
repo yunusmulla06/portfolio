@@ -162,14 +162,14 @@ export default function ContactSection() {
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <button
               onClick={() => setSelectedForm('hire')}
-              className="px-6 py-3 border rounded-xl hover:bg-black hover:text-white transition-all duration-300"
+              className="px-6 py-3 border rounded-xl hover:bg-black hover:text-white transition-all duration-300 cursor-pointer hover:scale-110"
             >
               Hire Me
             </button>
 
             <button
               onClick={() => setSelectedForm('project')}
-              className="px-6 py-3 border rounded-xl hover:bg-black hover:text-white transition-all duration-300"
+              className="px-6 py-3 border rounded-xl hover:bg-black hover:text-white transition-all duration-300 cursor-pointer hover:scale-110"
             >
               Project Inquiry
             </button>

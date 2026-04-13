@@ -9,20 +9,20 @@ const experiences = [
     role: 'Front-End Developer',
     company: '361° Sport | GlobalFeet',
     duration: 'Nov 2025 – Present',
-    description: 'Developing and maintaining Next.js-based web applications, focusing on UI performance, scalable component architecture, and responsive design for e-commerce experiences.',
+    description: 'Contributing to e-commerce platforms through frontend development using Next.js, including UI fixes and performance improvements. Managing product listings and marketplace integrations (Amazon), performing QA testing to ensure smooth user experience.',
   },
   {
     role: 'Front-End Developer',
     company: 'Freelance & Personal Projects',
     duration: '2023 – Present',
-    description: 'Delivered responsive and high-performance websites using Next.js and Tailwind CSS, improving SEO, load speed, and user experience across devices.',
+    description: 'Built and maintained websites using Next.js, WordPress (ACF, Elementor), and Shopify customization. Delivered responsive, SEO-friendly, and performance-optimized solutions based on client requirements, including e-commerce and service-based websites.',
   },
   {
     role: 'Front-End Developer',
     company: 'Oro Media Lab',
     duration: 'Oct 2023 – July 2025',
-    description: 'Built responsive web applications using React and Next.js, enhancing UI performance and implementing smooth animations for better user engagement.',
-  },
+    description: 'Progressed from HTML/CSS and HubSpot email template development (table-based layouts) to building modern web applications with React and Next.js. Led WordPress custom theme redesign projects using ACF and Elementor, including e-commerce functionality. Improved UI responsiveness, performance, and overall user experience.',
+  }
 ]
 
 export default function WorkExperience() {
@@ -58,14 +58,14 @@ export default function WorkExperience() {
             <p className="text-gray-500 text-sm mb-2">{exp.duration}</p>
             <p className="text-gray-300 text-sm">{exp.description}</p>
             <div className="flex flex-wrap gap-2 mt-3">
-              {['Next.js', 'React', 'Tailwind'].map((tech, i) => (
+              {/* {['Next.js', 'React', 'Tailwind', 'TEST'].map((tech, i) => (
                 <span
                   key={i}
                   className="text-xs px-2 py-1 bg-gray-800 text-gray-300 rounded-md"
                 >
                   {tech}
                 </span>
-              ))}
+              ))} */}
             </div>
           </div>
         ))}

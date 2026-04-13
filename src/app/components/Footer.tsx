@@ -12,10 +12,10 @@ export default function Footer() {
       <p className="mb-4">© {new Date().getFullYear()} Mohammed Yunus. All rights reserved.</p>
 
       <div className="flex gap-6">
-        <a href="https://www.linkedin.com/in/mohammed-yunus-017a53194?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+        <a href="https://www.linkedin.com/in/mohammed-yunus-017a53194?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover:scale-110 duration-300">
           <FaLinkedin size={24} />
         </a>
-        <a href="https://github.com/yunusmulla06" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+        <a href="https://github.com/yunusmulla06" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover:scale-110 duration-300">
           <FaGithub size={24} />
         </a>
       </div>

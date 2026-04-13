@@ -88,7 +88,7 @@ export default function About() {
                     <p className="about-text text-gray-500 text-sm">
                         📍 Dubai, UAE • 🟢 Open to Opportunities • ⏳ Notice Period: 30 Days
                     </p>
-                    <div className="about-text flex flex-wrap gap-2 mt-2">
+                    <div className="about-text flex flex-wrap gap-2 mt-2 cursor-none">
                     {[
                         'Next.js',
                         'React',
