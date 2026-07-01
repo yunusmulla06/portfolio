@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import Image from 'next/image'
-import profilePic from '../../../public/profile.jpeg'
+import profilePic from '../../../public/profile.png'
 import Section from './Section'
 
 export default function About() {
@@ -51,7 +51,7 @@ export default function About() {
             <div className="float absolute top-1/3 right-1/3 w-12 h-12 bg-indigo-400/20 rounded-full blur-lg"></div>
 
             <div className='flex flex-col md:flex-row items-center justify-center gap-8'>
-                <div className="relative w-40 h-40 md:w-60 md:h-60 z-10">
+                <div className="relative size-60 md:size-80 z-10">
                     <div
                         ref={frameRef}
                         className="absolute inset-0 rounded-full border-4 
@@ -61,7 +61,7 @@ export default function About() {
              shadow-[0_0_15px_rgba(0,0,0,0.7),0_0_20px_rgba(239,68,68,0.7),0_0_25px_rgba(255,255,255,0.7),0_0_20px_rgba(34,197,94,0.7)]"></div>
 
                     <div className="absolute inset-2 rounded-full overflow-hidden">
-                        <Image src={profilePic} alt="Mohammed Yunus" className="object-cover w-full h-full rounded-full" />
+                        <Image src={profilePic} alt="Mohammed Yunus" className="object-cover w-full h-full rounded-full hover:scale-125" />
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@ export default function About() {
                         About Me
                     </h2>
                     <p className="about-text text-gray-400">
-                        I’m <span className="text-white font-semibold">Mohammed Yunus Mulla</span>, a Front-End Developer based in Dubai with 2+ years of experience building modern, responsive, and high-performance web applications.
+                        I’m <span className="text-white font-semibold">Mohammed Yunus</span>, a Front-End Developer based in Dubai with 2+ years of experience building modern, responsive, and high-performance web applications.
                     </p>
 
                     <p className="about-text text-gray-400">

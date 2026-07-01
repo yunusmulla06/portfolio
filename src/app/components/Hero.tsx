@@ -5,7 +5,7 @@ import { gsap } from 'gsap'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import elementPic from '../../../public/animated.png'
+import elementPic from '../../../public/hero.png'
 import Section from './Section'
 
 
@@ -77,18 +77,18 @@ export default function Hero() {
 }, [])
 
   return (
-    <Section ref={heroRef} className='min-h-screen'>
+    <Section ref={heroRef} className='min-h-screen max-sm:-mt-14'>
       <div className="float absolute top-20 left-10 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl"></div>
       <div className="float absolute bottom-32 right-10 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl"></div>
       <div className="float absolute top-1/3 right-1/3 w-12 h-12 bg-indigo-400/20 rounded-full blur-lg"></div>
 
       <div className='md:mt-0 -mt-60 flex flex-col justify-center items-center'>
-        <h1 className="hero-text text-5xl md:text-6xl font-bold mb-4 relative z-10 text-center text-balance">
+        <h1 className="hero-text text-3xl font-bold mb-4 relative z-10 text-center text-balance">
           Hi, I’m{' '}
           <span
             ref={nameRef}
             // className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 animate-gradient text-center text-balance"
-            className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 bg-[length:200%_auto] animate-gradient"
+            className="text-6xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 bg-[length:200%_auto] animate-gradient"
           >
             Mohammed Yunus
           </span>
@@ -116,9 +116,22 @@ export default function Hero() {
         </Link>
       </div>
 
-      <div ref={imgRef} className="absolute md:w-96 w-52 right-0 bottom-0">
+      {/* <div ref={imgRef} className="absolute md:w-96 w-52 right-0 bottom-0">
         <Image src={elementPic} alt="img" className="" />
-      </div>
+      </div> */}
+      <div
+        ref={imgRef}
+        className="absolute bottom-0 md:right-10 z-10"
+      >
+          <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full scale-140" />
+
+            <Image
+              src={elementPic}
+              alt="Mohammed Yunus"
+              priority
+              className="relative md:w-[520px] w-full h-auto drop-shadow-2xl select-none"
+            />
+          </div>
     </Section>
   )
 }
