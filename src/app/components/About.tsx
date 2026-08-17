@@ -70,32 +70,46 @@ export default function About() {
                         About Me
                     </h2>
                     <p className="about-text text-gray-400">
-                        I’m <span className="text-white font-semibold">Mohammed Yunus</span>, a Front-End Developer based in Dubai with 2+ years of experience building modern, responsive, and high-performance web applications.
+                        I’m <span className="font-medium text-emerald-200">Mohammed Yunus</span>, a
+                        Front-End Developer based in Dubai with <span className="text-teal-400"> 3+ years of experience</span> building
+                        responsive, high-performance web applications and production e-commerce
+                        platforms.
                     </p>
 
                     <p className="about-text text-gray-400">
-                        I specialize in <span className="text-indigo-400">Next.js</span>, <span className="text-amber-400">React</span>, and <span className="text-fuchsia-400">Tailwind CSS</span>, along with experience in <span className="text-green-400 font-medium">WordPress (Custom Themes, Elementor)</span> and <span className="text-green-400 font-medium">Shopify Customization</span>, focusing on building scalable UI components and high-performance websites.
+                        I specialize in <span className="text-indigo-400">React</span> and
+                        <span className="text-amber-400"> Next.js</span>, with hands-on experience
+                        in responsive UI development, REST API integration, SEO, performance
+                        optimization, and building reusable components for real-world applications.
                     </p>
 
                     <p className="about-text text-gray-400">
-                        I have worked on real-world projects including service websites and e-commerce platforms, improving UI performance, responsiveness, and overall user engagement. I also enjoy adding micro-interactions using <span className="text-pink-400">GSAP</span>.
+                        My professional experience includes working on e-commerce websites,
+                        contributing to product and inventory workflows, checkout and payment
+                        functionality, coupon systems, marketplace operations, and website
+                        improvements while collaborating with development and operations teams.
                     </p>
 
                     <p className="about-text text-gray-400">
-                        Currently, I’m expanding my skills into full-stack development with <span className="text-emerald-400">Node.js</span> and <span className="text-emerald-400">MongoDB</span>.
+                        I also have experience with <span className="text-green-400">WordPress</span>
+                        and <span className="text-green-400">Shopify</span>, along with creating
+                        polished interfaces and subtle interactions using
+                        <span className="text-pink-400"> GSAP</span>.
                     </p>
 
                     <p className="about-text text-gray-500 text-sm">
                         📍 Dubai, UAE • 🟢 Open to Opportunities • ⏳ Notice Period: 30 Days
                     </p>
-                    <div className="about-text flex flex-wrap gap-2 mt-2 cursor-none">
+                    <div className="about-text flex flex-wrap gap-2 mt-2 cursor-default">
                     {[
-                        'Next.js',
                         'React',
+                        'Next.js',
+                        'TypeScript',
+                        'REST APIs',
+                        'E-commerce',
                         'Tailwind CSS',
-                        'WordPress',
-                        'Shopify',
-                        'GSAP',
+                        'SEO',
+                        'Performance',
                     ].map((tech) => (
                         <span
                         key={tech}

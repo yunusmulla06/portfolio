@@ -20,11 +20,11 @@ export default function Hero() {
 
 
     const phrases = [
-    'Front-End Developer based in Dubai',
-    'Next.js • React • Tailwind CSS',
-    'Building fast & scalable Web Applications',
-    'Open to opportunities • 30 days notice'
-  ]
+      'Frontend Developer specializing in React & Next.js',
+      'Building responsive & high-performance web applications',
+      'E-commerce • REST APIs • SEO • Performance',
+      'Open to opportunities • 30 days notice',
+    ]
 
   
   const ctx = gsap.context(() => {
@@ -99,7 +99,7 @@ export default function Hero() {
           className="hero-text text-lg md:text-xl text-gray-400 mb-6 relative z-10 max-w-3xl text-center text-balance"
         >
           {/* initial text will be replaced by gsap scramble */}
-            Front-End Developer based in Dubai
+            Frontend Developer specializing in React & Next.js
 
         </p>
 
@@ -109,7 +109,7 @@ export default function Hero() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium group"
         >
-          Resume
+          Download Resume
           <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-2">
             ➔
           </span>
@@ -121,7 +121,7 @@ export default function Hero() {
       </div> */}
       <div
         ref={imgRef}
-        className="absolute bottom-0 md:right-10 z-10"
+        className="absolute bottom-0 right-0 z-10"
       >
           <div className="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full scale-140" />
 
@@ -129,7 +129,7 @@ export default function Hero() {
               src={elementPic}
               alt="Mohammed Yunus"
               priority
-              className="relative md:w-[520px] w-full h-auto drop-shadow-2xl select-none"
+              className="relative md:w-[520px] w-full h-auto drop-shadow-2xl select-none [mask-image:linear-gradient(to_right,transparent_0%,black_22%,black_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_22%,black_100%)]"
             />
           </div>
     </Section>

@@ -33,19 +33,28 @@ export default function Projects() {
   }, [])
 
   const projectList = [
-      {
-        name: 'Nawayath Repair',
-        desc: 'Built a responsive service website with clean UI, smooth interactions, and optimized user flow.',
-        tech: ['React', 'Tailwind', 'GSAP'],
-        link: 'https://nawayath-smart-repair.vercel.app/',
-      },
-      {
-        name: 'Patel Interior',
-        desc: 'Developed an interior website with portfolio sections and subtle animations to showcase projects.',
-        tech: ['React', 'Tailwind', 'GSAP'],
-        link: 'https://patel-interior.vercel.app/',
-      },
-    ]
+    {
+      name: 'POF Rental',
+      desc: 'Developed a responsive rental platform with reusable components, modern UI, and a user-focused browsing experience.',
+      tech: ['Next.js', 'Tailwind CSS'],
+      link: 'https://pof-rental-five.vercel.app/',
+      github: 'https://github.com/yunusmulla06/pof-rental',
+    },
+    {
+      name: 'Nawayath Smart Repair',
+      desc: 'Built a responsive repair-service website with a clean interface, smooth interactions, and optimized layouts across devices.',
+      tech: ['Next.js', 'Tailwind CSS', 'GSAP'],
+      link: 'https://nawayath-smart-repair.vercel.app/',
+      github: 'https://github.com/yunusmulla06/Nawayath-Smart-Repair',
+    },
+    {
+      name: "Patel's Interior",
+      desc: 'Designed and developed a responsive interior website with project showcases, subtle animations, and a clean visual presentation.',
+      tech: ['Next.js', 'Tailwind CSS', 'GSAP'],
+      link: 'https://patel-interior.vercel.app/',
+      github: 'https://github.com/yunusmulla06/patel-interior',
+    },
+  ]
 
   return (
     <Section
@@ -81,15 +90,29 @@ export default function Projects() {
               ))}
             </div>
 
-            <div className="flex">
+            <div className="flex items-center justify-between gap-4 mt-4">
+              <Link
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${project.name} on GitHub`}
+                className="flex items-center text-gray-400 hover:text-white group"
+              >
+                <span className="text-xs">GitHub</span>
+                <span className="ml-1 text-xl transition-transform duration-300 group-hover:translate-x-1">
+                  ⇒
+                </span>
+              </Link>
+
               <Link
                 href={project.link}
                 target="_blank"
-                aria-label={`View ${project.name}`}
-                className="mt-4 flex items-center text-indigo-400 ml-auto group"
+                rel="noopener noreferrer"
+                aria-label={`View ${project.name} live site`}
+                className="flex items-center text-indigo-400 hover:text-indigo-300 group"
               >
                 <span className="text-xs">Live Site</span>
-                <span className="ml-1 text-xl transform transition-transform duration-300 group-hover:translate-x-1.5">
+                <span className="ml-1 text-xl transition-transform duration-300 group-hover:translate-x-1">
                   ⇒
                 </span>
               </Link>

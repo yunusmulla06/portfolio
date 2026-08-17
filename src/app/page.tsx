@@ -27,7 +27,7 @@ export default function Home() {
           className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300 font-medium group"
 
         >
-          Resume
+          Download Resume
           <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-2">
             ➔
           </span>

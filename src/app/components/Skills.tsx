@@ -6,58 +6,64 @@ import Section from './Section'
 
 const skills = [
   {
-    title: 'Frontend',
+    number: '01',
+    title: 'Frontend Development',
     items: [
       'React',
       'Next.js',
       'JavaScript (ES6+)',
       'TypeScript',
-      'Tailwind CSS',
+      'HTML5',
+      'CSS3',
     ],
   },
   {
-    title: 'UI & Animation',
+    number: '02',
+    title: 'UI & Styling',
     items: [
-      'GSAP',
+      'Tailwind CSS',
+      'Bootstrap',
       'Responsive Design',
       'Figma',
+      'GSAP',
     ],
   },
   {
-    title: 'Backend & APIs',
+    number: '03',
+    title: 'API & Integration',
     items: [
-      'Node.js',
-      'Express.js',
-      'MongoDB',
       'REST APIs',
-      'Authentication (JWT)',
+      'API Integration',
+      'Postman',
+      'JWT Authentication',
     ],
   },
   {
-    title: 'CMS & E-commerce',
+    number: '04',
+    title: 'E-commerce',
     items: [
-      'WordPress (ACF, Elementor)',
-      'Shopify Customization',
+      'Product & Catalog Management',
+      'Product Variants',
+      'Cart & Checkout',
+      'Coupon Systems',
+      'Payment Integration',
+      'SEO',
     ],
   },
   {
-    title: 'Tools & Platforms',
+    number: '05',
+    title: 'CMS & Tools',
     items: [
+      'WordPress',
+      'ACF',
+      'Elementor',
+      'Shopify',
       'Git & GitHub',
       'Docker',
-      'Postman',
-      'Vercel & Netlify',
+      'Vercel',
+      'Netlify',
     ],
   },
-  {
-  title: 'E-commerce Experience',
-    items: [
-      'Product UI Development',
-      'Performance Optimization',
-      'Responsive Product Pages',
-      'Cart & Checkout UI',
-    ],
-  }
 ]
 
 
@@ -94,17 +100,23 @@ export default function Skills() {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="skill-card break-inside-avoid bg-gray-900/60 border border-gray-800 rounded-xl p-6 mb-6 hover:bg-gray-800/70 hover:-translate-y-1 transition-all duration-300 shadow-lg backdrop-blur-md"
-            // className="skill-card break-inside-avoid bg-gray-900/60 border border-gray-800 rounded-xl p-6 mb-6 hover:bg-gray-800/70 transition-all duration-300 shadow-lg backdrop-blur-md"
+            className="skill-card group break-inside-avoid bg-gray-900/60 border border-gray-800 rounded-2xl p-6 mb-6 hover:bg-gray-800/70 hover:border-gray-700 hover:-translate-y-1 transition-all duration-300 shadow-lg backdrop-blur-md"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <h3 className="text-xl font-semibold text-white">{skill.title}</h3>
+            <div className="flex items-start justify-between gap-4 mb-5">
+              <div>
+
+                <h3 className="text-xl font-semibold text-white mt-1">
+                  {skill.title}
+                </h3>
+              </div>
+
             </div>
+
             <div className="flex flex-wrap gap-2">
               {skill.items.map((item, i) => (
                 <span
                   key={i}
-                  className="text-xs px-2 py-1 bg-gray-800 text-gray-300 rounded-md border border-gray-700 cursor-none"
+                  className="text-xs px-3 py-1.5 bg-gray-800/80 text-gray-300 rounded-lg border border-gray-700/80"
                 >
                   {item}
                 </span>
