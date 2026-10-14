@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Section from './Section'
-import { Mail, MessageCircle } from 'lucide-react'
+import { Mail, MessageCircle, Send } from 'lucide-react'
 
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -34,7 +34,7 @@ export default function ContactSection() {
     }
 
     if (!position) {
-      newErrors.position = 'Job position is required'
+      newErrors.position = 'Position is required'
     }
 
     if (!message) {
@@ -91,127 +91,213 @@ export default function ContactSection() {
         position="top-center"
         autoClose={2500}
         hideProgressBar
+        theme="dark"
       />
 
-      <div className="max-w-2xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6">
 
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">
-          Let’s Connect
-        </h2>
+        {/* Header */}
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.25em] text-gray-500 mb-3">
+            Get In Touch
+          </p>
 
-        {/* Description */}
-        <p className="text-gray-400 mb-4 text-sm md:text-base max-w-xl mx-auto">
-          I’m currently looking for Frontend Developer opportunities in Dubai
-          and across the UAE. If you’re hiring for a React or Next.js role,
-          I’d be happy to connect.
-        </p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Let&apos;s Connect
+          </h2>
 
-        {/* Availability */}
-        <p className="text-gray-500 text-sm mb-6">
-          📍 Dubai, UAE • 🟢 Open to Opportunities • ⏳ 30 Days Notice
-        </p>
-
-        {/* Contact Links */}
-        <div className="flex justify-center gap-3 mb-8 flex-wrap">
-          <a
-            href="mailto:mullayunus449@gmail.com"
-            className="flex items-center gap-2 text-sm px-4 py-2 bg-gray-800 border border-gray-700 rounded-full hover:bg-gray-700 transition"
-          >
-            <Mail size={14} />
-            Email
-          </a>
-
-          <a
-            href="https://wa.me/+971502202462"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm px-4 py-2 bg-gray-800 border border-gray-700 rounded-full hover:bg-gray-700 transition"
-          >
-            <MessageCircle size={14} />
-            WhatsApp
-          </a>
+          <p className="text-gray-400 text-sm sm:text-base leading-7 max-w-xl mx-auto">
+            I&apos;m currently open to Frontend Developer opportunities in
+            Dubai and across the UAE. If you have an opportunity that matches
+            my experience, feel free to get in touch.
+          </p>
         </div>
 
-        {/* Job Contact Form */}
+        {/* Availability */}
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 mb-7 text-sm text-gray-500">
+          <span>📍 Dubai, UAE</span>
+
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-green-400" />
+            Open to Opportunities
+          </span>
+
+          <span>⏳ 30 Days Notice</span>
+        </div>
+
+        {/* Direct Contact */}
+        <div className="flex justify-center flex-wrap gap-3 mb-10">
+
+          <a
+            href="mailto:mullayunus449@gmail.com"
+            className="flex items-center gap-2
+              text-sm
+              px-5 py-2.5
+              bg-gray-900/70
+              border border-gray-800
+              rounded-full
+              text-gray-300
+              hover:text-white
+              hover:border-gray-700
+              hover:bg-gray-800
+              transition-all duration-200"
+          >
+            <Mail size={15} />
+            Email Me
+          </a>
+
+          <a
+            href="https://wa.me/971502202462"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2
+              text-sm
+              px-5 py-2.5
+              bg-gray-900/70
+              border border-gray-800
+              rounded-full
+              text-gray-300
+              hover:text-white
+              hover:border-gray-700
+              hover:bg-gray-800
+              transition-all duration-200"
+          >
+            <MessageCircle size={15} />
+            WhatsApp
+          </a>
+
+        </div>
+
+        {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
           method="POST"
           action="https://formspree.io/f/xvgdobky"
-          className="mt-6 space-y-4 max-w-lg mx-auto text-left bg-white/5 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-white/10"
+          className="
+            max-w-2xl mx-auto
+            text-left
+            bg-gray-900/50
+            border border-gray-800
+            p-6 sm:p-8
+            rounded-2xl
+            shadow-lg
+            backdrop-blur-md
+          "
         >
 
-          {/* Name */}
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="name"
-              className="text-sm text-gray-300"
-            >
-              Your Name
-            </label>
+          {/* Form Header */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-white">
+              Send Me a Message
+            </h3>
 
-            <input
-              id="name"
-              type="text"
-              name="name"
-              onChange={() => clearError('name')}
-              className={`w-full border ${
-                errors.name
-                  ? 'border-red-500/70'
-                  : 'border-white/20'
-              } bg-transparent text-sm p-3 rounded-lg focus:ring-2 ${
-                errors.name
-                  ? 'focus:ring-red-500'
-                  : 'focus:ring-white'
-              } outline-none transition`}
-            />
-
-            {errors.name && (
-              <p className="text-red-400 text-xs">
-                {errors.name}
-              </p>
-            )}
+            <p className="text-sm text-gray-500 mt-1">
+              Tell me a little about the opportunity.
+            </p>
           </div>
 
-          {/* Email */}
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="email"
-              className="text-sm text-gray-300"
-            >
-              Your Email
-            </label>
+          {/* Name + Email */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-            <input
-              id="email"
-              type="text"
-              name="email"
-              onChange={() => clearError('email')}
-              className={`w-full border ${
-                errors.email
-                  ? 'border-red-500/70'
-                  : 'border-white/20'
-              } bg-transparent text-sm p-3 rounded-lg focus:ring-2 ${
-                errors.email
-                  ? 'focus:ring-red-500'
-                  : 'focus:ring-white'
-              } outline-none transition`}
-            />
+            {/* Name */}
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="name"
+                className="text-sm text-gray-300"
+              >
+                Your Name
+              </label>
 
-            {errors.email && (
-              <p className="text-red-400 text-xs">
-                {errors.email}
-              </p>
-            )}
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Your name"
+                autoComplete="name"
+                onChange={() => clearError('name')}
+                className={`w-full border ${
+                  errors.name
+                    ? 'border-red-500/70'
+                    : 'border-white/10'
+                }
+                bg-gray-950/40
+                text-white
+                placeholder:text-gray-600
+                text-sm
+                p-3
+                rounded-lg
+                focus:ring-1
+                ${
+                  errors.name
+                    ? 'focus:ring-red-500'
+                    : 'focus:ring-white'
+                }
+                focus:border-transparent
+                outline-none
+                transition`}
+              />
+
+              {errors.name && (
+                <p className="text-red-400 text-xs">
+                  {errors.name}
+                </p>
+              )}
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="email"
+                className="text-sm text-gray-300"
+              >
+                Your Email
+              </label>
+
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                autoComplete="email"
+                onChange={() => clearError('email')}
+                className={`w-full border ${
+                  errors.email
+                    ? 'border-red-500/70'
+                    : 'border-white/10'
+                }
+                bg-gray-950/40
+                text-white
+                placeholder:text-gray-600
+                text-sm
+                p-3
+                rounded-lg
+                focus:ring-1
+                ${
+                  errors.email
+                    ? 'focus:ring-red-500'
+                    : 'focus:ring-white'
+                }
+                focus:border-transparent
+                outline-none
+                transition`}
+              />
+
+              {errors.email && (
+                <p className="text-red-400 text-xs">
+                  {errors.email}
+                </p>
+              )}
+            </div>
+
           </div>
 
-          {/* Job Position */}
-          <div className="flex flex-col gap-2">
+          {/* Position */}
+          <div className="flex flex-col gap-2 mt-4">
             <label
               htmlFor="position"
               className="text-sm text-gray-300"
             >
-              Job Position
+              Position / Opportunity
             </label>
 
             <input
@@ -223,12 +309,23 @@ export default function ContactSection() {
               className={`w-full border ${
                 errors.position
                   ? 'border-red-500/70'
-                  : 'border-white/20'
-              } bg-transparent text-sm p-3 rounded-lg focus:ring-2 ${
+                  : 'border-white/10'
+              }
+              bg-gray-950/40
+              text-white
+              placeholder:text-gray-600
+              text-sm
+              p-3
+              rounded-lg
+              focus:ring-1
+              ${
                 errors.position
                   ? 'focus:ring-red-500'
                   : 'focus:ring-white'
-              } outline-none transition`}
+              }
+              focus:border-transparent
+              outline-none
+              transition`}
             />
 
             {errors.position && (
@@ -239,7 +336,7 @@ export default function ContactSection() {
           </div>
 
           {/* Message */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 mt-4">
             <label
               htmlFor="message"
               className="text-sm text-gray-300"
@@ -250,18 +347,30 @@ export default function ContactSection() {
             <textarea
               id="message"
               name="message"
-              rows={4}
+              rows={5}
               placeholder="Tell me about the opportunity..."
               onChange={() => clearError('message')}
               className={`w-full border ${
                 errors.message
                   ? 'border-red-500/70'
-                  : 'border-white/20'
-              } bg-transparent text-sm p-3 rounded-lg focus:ring-2 ${
+                  : 'border-white/10'
+              }
+              bg-gray-950/40
+              text-white
+              placeholder:text-gray-600
+              text-sm
+              p-3
+              rounded-lg
+              focus:ring-1
+              ${
                 errors.message
                   ? 'focus:ring-red-500'
                   : 'focus:ring-white'
-              } outline-none transition resize-none`}
+              }
+              focus:border-transparent
+              outline-none
+              transition
+              resize-none`}
             />
 
             {errors.message && (
@@ -275,12 +384,36 @@ export default function ContactSection() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-white text-black px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-200 disabled:opacity-70 disabled:cursor-not-allowed"
+            className="
+              w-full
+              mt-5
+              flex
+              items-center
+              justify-center
+              gap-2
+              bg-white
+              text-black
+              px-4
+              py-3
+              rounded-lg
+              font-medium
+              text-sm
+              transition-all
+              duration-200
+              hover:bg-gray-200
+              disabled:opacity-60
+              disabled:cursor-not-allowed
+            "
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            <Send size={15} />
+
+            {isSubmitting
+              ? 'Sending...'
+              : 'Send Message'}
           </button>
 
         </form>
+
       </div>
     </Section>
   )

@@ -6,20 +6,52 @@ import Section from './Section'
 
 const experiences = [
   {
+    number: '01',
     role: 'Front-End Developer',
     company: '361° Sport | GlobalFeet',
     duration: 'Nov 2025 – Present',
-    description:
-      'Worked on the day-to-day development and management of a production e-commerce website, contributing to new features, website improvements, API integrations, checkout and payment functionality, coupon systems, product and inventory management, SEO, performance optimization, and quality testing. Also handled product listings and marketplace operations on Amazon while coordinating with external developers and internal teams to resolve issues and improve the overall customer experience.',
-    tech: ['Next.js', 'React', 'TypeScript', 'REST APIs', 'SEO', 'E-commerce'],
+    description: [
+      'Develop and maintain the company’s production e-commerce website using Next.js, React, and TypeScript.',
+      'Build and improve product listing, product variants, cart, checkout, coupon, and other customer-facing e-commerce features.',
+      'Integrate and work with REST APIs for products, customers, orders, authentication, checkout, and other platform functionality.',
+      'Optimize website performance, responsive UI, SEO, and overall user experience across desktop and mobile.',
+      'Manage product catalogs, inventory-related updates, SEO content, and marketplace listings across Amazon and Noon.',
+      'Perform QA testing, troubleshoot frontend and integration issues, and coordinate with backend developers and internal teams to resolve production issues.',
+    ],
+    tech: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'REST APIs',
+      'Tailwind CSS',
+      'SEO',
+      'E-commerce',
+    ],
+    current: true,
   },
   {
+    number: '02',
     role: 'Front-End Developer',
     company: 'Oro Media Lab',
-    duration: 'Oct 2023 – July 2025',
-    description:
-      'Developed responsive websites using React and Next.js, converting Figma designs into production-ready interfaces. Customized WordPress websites using ACF and Elementor, worked with designers and backend developers, and resolved cross-browser and UI issues.',
-    tech: ['React', 'Next.js', 'WordPress', 'ACF', 'Elementor', 'Tailwind CSS'],
+    duration: 'Oct 2023 – Jul 2025',
+    description: [
+      'Developed responsive and production-ready websites using React and Next.js.',
+      'Converted Figma designs into responsive, reusable, and pixel-focused frontend interfaces.',
+      'Built responsive layouts and interactive UI components using modern HTML, CSS, JavaScript, and Tailwind CSS.',
+      'Customized and developed WordPress websites using ACF and Elementor based on project requirements.',
+      'Worked with designers and backend developers to implement new features and maintain existing websites.',
+      'Troubleshot responsive, cross-browser, UI, and frontend issues across different devices and browsers.',
+    ],
+    tech: [
+      'React',
+      'Next.js',
+      'JavaScript',
+      'Tailwind CSS',
+      'WordPress',
+      'ACF',
+      'Elementor',
+    ],
+    current: false,
   },
 ]
 
@@ -28,14 +60,21 @@ export default function WorkExperience() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.experience-card', {
-        y: 30,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power3.out',
-        stagger: 0.3,
-        clearProps: 'all',
-      })
+      gsap.fromTo(
+        '.experience-card',
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          stagger: 0.15,
+          clearProps: 'transform',
+        }
+      )
     }, expRef)
 
     return () => ctx.revert()
@@ -43,30 +82,119 @@ export default function WorkExperience() {
 
   return (
     <Section ref={expRef} id="experience" py="20">
-      <h2 className="text-3xl font-bold text-white mb-10 text-center">Work Experience</h2>
+      <div className="w-full max-w-6xl mx-auto">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {experiences.map((exp, i) => (
-          <div
-            key={i}
-            className="flex flex-col experience-card bg-gray-900/60 border border-gray-800 rounded-xl p-6 shadow-lg hover:bg-gray-800/70 hover:-translate-y-1 transition-all duration-300 backdrop-blur-md cursor-default"
-          >
-            <h3 className="text-xl font-semibold text-white mb-1">{exp.role}</h3>
-            <p className="text-gray-400 mb-2">{exp.company}</p>
-            <p className="text-gray-500 text-sm mb-2">{exp.duration}</p>
-            <p className="text-gray-300 text-sm mb-4">{exp.description}</p>
-            <div className="flex flex-wrap gap-2 mt-auto">
-              {exp.tech.map((tech, i) => (
-                <span
-                  key={i}
-                  className="text-xs px-2.5 py-1 bg-gray-800 text-gray-300 rounded-md border border-gray-700"
-                >
-                  {tech}
-                </span>
-              ))}
+        {/* Header */}
+        <div className="text-center mb-12">
+          <p className="text-sm uppercase tracking-[0.25em] text-gray-500 mb-3">
+            Career
+          </p>
+
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            Work Experience
+          </h2>
+
+          <p className="text-gray-400 max-w-2xl mx-auto mt-4 text-sm sm:text-base leading-relaxed">
+            Experience building modern web applications, e-commerce platforms,
+            and responsive digital experiences.
+          </p>
+        </div>
+
+        {/* Experience Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {experiences.map((exp) => (
+            <div
+              key={exp.number}
+              className="experience-card group relative overflow-hidden
+                flex flex-col
+                bg-gray-900/60
+                border border-gray-800
+                rounded-2xl
+                p-6 sm:p-7
+                shadow-lg
+                backdrop-blur-md
+                transition-all duration-300
+                hover:-translate-y-1
+                hover:bg-gray-800/70
+                hover:border-gray-700"
+            >
+              {/* Number */}
+              <span
+                className="absolute right-4 top-2
+                  text-8xl font-bold
+                  text-white/[0.025]
+                  leading-none
+                  select-none"
+              >
+                {exp.number}
+              </span>
+
+              {/* Current Role */}
+              {exp.current && (
+                <div className="relative flex items-center gap-2 mb-4">
+                  <span className="w-2 h-2 rounded-full bg-white" />
+
+                  <span className="text-xs uppercase tracking-wider text-gray-500">
+                    Current Role
+                  </span>
+                </div>
+              )}
+
+              {/* Role */}
+              <h3 className="relative text-xl sm:text-2xl font-semibold text-white">
+                {exp.role}
+              </h3>
+
+              {/* Company */}
+              <p className="relative text-gray-400 mt-1">
+                {exp.company}
+              </p>
+
+              {/* Duration */}
+              <p className="relative text-gray-500 text-sm mt-1 mb-6">
+                {exp.duration}
+              </p>
+
+              {/* Responsibilities */}
+              <ul className="relative space-y-3 mb-7">
+                {exp.description.map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-sm text-gray-300 leading-6"
+                  >
+                    <span className="mt-[9px] w-1 h-1 rounded-full bg-gray-500 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Technologies */}
+              <div className="relative flex flex-wrap gap-2 mt-auto pt-2">
+                {exp.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs px-3 py-1.5
+                      bg-gray-800/80
+                      text-gray-300
+                      rounded-lg
+                      border border-gray-700/80"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottom Accent */}
+              <div
+                className="absolute bottom-0 left-0
+                  w-0 h-px
+                  bg-white/30
+                  transition-all duration-500
+                  group-hover:w-full"
+              />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Section>
   )

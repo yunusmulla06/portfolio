@@ -4,50 +4,117 @@ import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer className="relative flex flex-col items-center justify-center px-6 py-12 bg-gray-950 text-gray-400 font-sans overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-gray-900 bg-gray-950 text-gray-400">
 
-      {/* Floating shapes */}
-      <div className="absolute top-5 left-5 w-12 h-12 bg-indigo-500/10 rounded-full blur-xl"></div>
-      <div className="absolute bottom-5 right-5 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl"></div>
+      {/* Background Elements */}
+      <div className="absolute top-0 left-10 w-24 h-24 bg-indigo-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-10 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl" />
 
-      {/* Social Links */}
-      <div className="flex items-center gap-6 mb-6">
+      <div className="relative max-w-6xl mx-auto px-6 py-12">
 
-        <a
-          href="https://www.linkedin.com/in/mohammed-yunus-017a53194/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="hover:text-white transition-all duration-300 hover:scale-110"
-        >
-          <FaLinkedin size={22} />
-        </a>
+        {/* Main Footer Content */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
-        <a
-          href="https://github.com/yunusmulla06"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="hover:text-white transition-all duration-300 hover:scale-110"
-        >
-          <FaGithub size={22} />
-        </a>
+          {/* Intro */}
+          <div className="text-center md:text-left">
+            <h3 className="text-lg font-semibold text-white">
+              Mohammed Yunus
+            </h3>
 
-        <a
-          href="mailto:mullayunus449@gmail.com"
-          aria-label="Email"
-          className="hover:text-white transition-all duration-300 hover:scale-110"
-        >
-          <FaEnvelope size={22} />
-        </a>
+            <p className="text-sm text-gray-500 mt-1">
+              Frontend Developer · React · Next.js · TypeScript
+            </p>
+
+            <p className="text-xs text-gray-600 mt-2">
+              Dubai, UAE
+            </p>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-3">
+
+            <a
+              href="https://www.linkedin.com/in/mohammed-yunus-017a53194/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="
+                flex items-center justify-center
+                w-10 h-10
+                rounded-full
+                bg-gray-900
+                border border-gray-800
+                text-gray-400
+                hover:text-white
+                hover:border-gray-700
+                hover:bg-gray-800
+                transition-all duration-200
+              "
+            >
+              <FaLinkedin size={17} />
+            </a>
+
+            <a
+              href="https://github.com/yunusmulla06"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="
+                flex items-center justify-center
+                w-10 h-10
+                rounded-full
+                bg-gray-900
+                border border-gray-800
+                text-gray-400
+                hover:text-white
+                hover:border-gray-700
+                hover:bg-gray-800
+                transition-all duration-200
+              "
+            >
+              <FaGithub size={17} />
+            </a>
+
+            <a
+              href="mailto:mullayunus449@gmail.com"
+              aria-label="Email"
+              className="
+                flex items-center justify-center
+                w-10 h-10
+                rounded-full
+                bg-gray-900
+                border border-gray-800
+                text-gray-400
+                hover:text-white
+                hover:border-gray-700
+                hover:bg-gray-800
+                transition-all duration-200
+              "
+            >
+              <FaEnvelope size={17} />
+            </a>
+
+          </div>
+
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-gray-900 my-8" />
+
+        {/* Bottom */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-600">
+
+          <p>
+            © {new Date().getFullYear()} Mohammed Yunus. All rights reserved.
+          </p>
+
+          <p>
+            Built with Next.js & Tailwind CSS
+          </p>
+
+        </div>
 
       </div>
-
-      {/* Copyright */}
-      <p className="text-sm text-gray-500 text-center">
-        © {new Date().getFullYear()} Mohammed Yunus. All rights reserved.
-      </p>
-
     </footer>
   )
 }
